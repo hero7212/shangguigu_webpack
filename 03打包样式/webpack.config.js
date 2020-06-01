@@ -27,6 +27,22 @@ module.exports = {
             {
                 // 匹配哪些文件
                 test: /\.css$/,
+                use: [
+                    // use数组中的loader执行顺序：从右到左，从下到上，依次执行
+                    // 创建style标签，将js中的样式资源插入head中
+                    'style-loader',
+                    // 将css变成commonjs模块加载js中，里面内容是样式字符串
+                    'css-loader'
+                ]
+            },
+            {
+                test: /\.less$/,
+                use： [
+                    'style-loader',
+                    'css-loader',
+                    // 把less编译成css
+                    'less-loader'
+                ]
             }
         }
     },
@@ -35,6 +51,6 @@ module.exports = {
         // 详细plugins的配置
     ],
     // 模式
-    mode: 'development', // 开发模式
+    mode: 'development' // 开发模式
     // mode: 'production'   // 生产模式
 }
