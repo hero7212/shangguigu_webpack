@@ -49,7 +49,7 @@ module.exports = {
                 exclude: /\.(html|js|css|less|jpg|png|gif)/,
                 loader: 'file-loader',
                 options: {
-                    name: '[hash:10],[ext]'
+                    name: '[hash:10].[ext]'
                 }
             }
         ]
